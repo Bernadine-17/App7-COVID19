@@ -26,7 +26,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 -->
 	
    <head> 
-      <title>Hello World</title>  
+      <title>COVID-19 Diagnostic Quiz</title>  
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
@@ -35,19 +35,36 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 
 <script>
+	var covid_count = 0;
+	var cold_count = 0;
+	var flu_count = 0;
         var allergy_count = 0;
-        var cold_count = 0;
-
+        
+	function covidAdd(){
+		covid_count = covid_count + 1;
+	}
+	
+	function coldAdd(){
+            	cold_count = cold_count + 1;
+        }
+	
+	function fluAdd(){
+		flu_count = flu_count + 1;
 
         function allergyAdd(){
-            allergy_count = allergy_count + 1;
-		alert(allergy_count);
-
-        }
-
-        function coldAdd(){
-            cold_count = cold_count + 1;
-        }
+		allergy_count = allergy_count + 1;
+	}
+		
+	function results(){
+		var covidPercent = covid_count / (covid_count + cold_count + flu_count + allergy_count) * 100;
+		var coldPercent = cold_count / (covid_count + cold_count + flu_count + allergy_count) * 100;
+		var fluPercent = flu_count / (covid_count + cold_count + flu_count + allergy_count) * 100;
+		var allergyPercent = allergy_count / (covid_count + cold_count + flu_count + allergy_count) * 100;
+		var resultText = document.getElementById("results");
+		resultText.innerHTML = "Probability it is COVID-19 = " + covidPercent + "%<br> Probability it is the cold = " + coldPercent + "%<br> Probability it is the flu = " + fluPercent + "%<br> Probability it is allergies = " + allergyPercent + "%";
+		
+	}
+	
 
   </script>
 
@@ -77,11 +94,11 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1>
+	<h1>Do you have the coronavirus?</h1>
 </div>
 	
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	<p>Take this quiz to see the probability of having the coronavirus, the cold, the flu, or seasonal allergies.</p>
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
 	
@@ -95,8 +112,11 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Put Question 1 content here.</p>    
-    	</div>
+        <p>Do you have a cough?</p>
+			<a href="#two"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-red">Yes; a dry cough</a>
+         		<a href="#two"  onclick="coldAdd();" class="w3-btn w3-blue">Yes; a mild cough</a>
+         		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-yellow">Yes, but rarely; a dry cough.</a>
+	</div>
 </div>
 
 <div class="page" id="two">
