@@ -61,10 +61,10 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 	}
 		
 	function results(){
-		var covidPercent = covid_count / (covid_count + cold_count + flu_count + allergy_count) * 100;
-		var coldPercent = cold_count / (covid_count + cold_count + flu_count + allergy_count) * 100;
-		var fluPercent = flu_count / (covid_count + cold_count + flu_count + allergy_count) * 100;
-		var allergyPercent = allergy_count / (covid_count + cold_count + flu_count + allergy_count) * 100;
+		var covidPercent = covid_count/ (covid_count + cold_count + flu_count + allergy_count) * 100;
+		var coldPercent = cold_count/ (covid_count + cold_count + flu_count + allergy_count) * 100;
+		var fluPercent = flu_count/ (covid_count + cold_count + flu_count + allergy_count) * 100;
+		var allergyPercent = allergy_count/ (covid_count + cold_count + flu_count + allergy_count) * 100;
 		var resultText = document.getElementById("results");
 		resultText.innerHTML = "Probability it is COVID-19 = " + covidPercent + "%<br> Probability it is the cold = " + coldPercent + "%<br> Probability it is the flu = " + fluPercent + "%<br> Probability it is allergies = " + allergyPercent + "%";
 		
@@ -159,7 +159,7 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 	
     	<div id="content" class="w3-container">
         <p>Do you have a cough?</p>
-			<a href="#two"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-red">Yes; a dry cough</a>
+			<a href="#two"  onclick="covidAdd();" class="w3-btn w3-red">Yes; a dry cough</a>
          		<a href="#two"  onclick="coldAdd();" class="w3-btn w3-blue">Yes; a mild cough</a>
          		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-yellow">Yes, but rarely; a dry cough.</a>
 	</div>
