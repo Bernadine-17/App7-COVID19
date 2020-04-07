@@ -69,6 +69,46 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 		resultText.innerHTML = "Probability it is COVID-19 = " + covidPercent + "%<br> Probability it is the cold = " + coldPercent + "%<br> Probability it is the flu = " + fluPercent + "%<br> Probability it is allergies = " + allergyPercent + "%";
 		
 	}
+		
+	//below will be a combination of functions fit into one function in order to return a value
+	
+	//for question 1, question 3, question 5, question 6, 
+	function covidFluAdd(){
+		covidAdd();
+		fluAdd();
+	}
+	
+	//for question 2
+	function covidFluAllergyAdd(){
+		covidAdd();
+		fluAdd();
+		allergyAdd();
+	}
+	
+	//for question 3, for question 4, question 10
+	function coldAllergyAdd(){
+		covidAdd();
+		allergyAdd();
+	}
+	
+	//for question 7
+	function covidColdAllergyAdd(){
+		covidAdd();
+		coldAdd();
+		allergyAdd();
+	}
+	
+	//for question 8
+	function covidAllergyAdd(){
+		covidAdd();
+		allergyAdd();
+	}
+	
+	//for question 9
+	function coldFluAdd(){
+		coldAdd();
+		fluAdd();
+	}
 	
 
   </script>
@@ -130,9 +170,19 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 	</div>
 	
 	<div id="content" class="w3-container">
-		<a href="#eight" onclick="results();" class="w3-btn w3-black">Click here to view results</a>
+		<a href="#three" onclick="results();" class="w3-btn w3-black">Click here to view results</a>
 	</div>
-</div>	
+</div>
+	
+<div class="page" id="three">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Your Results!</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p id="results"></p>	
+	</div>
+</div>
 
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
