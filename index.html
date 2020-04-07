@@ -59,14 +59,15 @@ console.log("This file last modified " + docMod); // generates message in javaSc
         function allergyAdd(){
 		allergy_count = allergy_count + 1;
 	}
-		
+	
+	//for the results, instead of adding all the variables together for the total, I just put 11 because I know that this quiz will have a total of 11 questions.
 	function results(){
-		var covidPercent = covid_count/ (covid_count + cold_count + flu_count + allergy_count) * 100;
-		var coldPercent = cold_count/ (covid_count + cold_count + flu_count + allergy_count) * 100;
-		var fluPercent = flu_count/ (covid_count + cold_count + flu_count + allergy_count) * 100;
-		var allergyPercent = allergy_count/ (covid_count + cold_count + flu_count + allergy_count) * 100;
+		var covidPercent = covid_count/ (11) * 100;
+		var coldPercent = cold_count/ (11) * 100;
+		var fluPercent = flu_count/ (11) * 100;
+		var allergyPercent = allergy_count/ (11) * 100;
 		var resultText = document.getElementById("results");
-		resultText.innerHTML = "Probability it is COVID-19 = " + covidPercent + "%<br> Probability it is the cold = " + coldPercent + "%<br> Probability it is the flu = " + fluPercent + "%<br> Probability it is allergies = " + allergyPercent + "%";
+		resultText.innerHTML = "Probability it is COVID-19 = " + covidPercent + "%"; //"%<br> Probability it is the cold = " + coldPercent + "%<br> Probability it is the flu = " + fluPercent + "%<br> Probability it is allergies = " + allergyPercent + "%";
 		
 	}
 		
