@@ -37,76 +37,23 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <script>
 	
 	var covid_count = 0;
-	var cold_count = 0;
-	var flu_count = 0;
-        var allergy_count = 0;
+	var notCovid_count = 0;
         
 	function covidAdd(){
 		covid_count = covid_count + 1;
 	}
 	
-	function coldAdd(){
-            	cold_count = cold_count + 1;
-        }
-	
-	function fluAdd(){
-		flu_count = flu_count + 1;
-
-        function allergyAdd(){
-		allergy_count = allergy_count + 1;
+	function notCovidAdd(){
+		notCovid_count = notCovid_count + 1;
 	}
 	
-	//for the results, instead of adding all the variables together for the total, I just put 11 because I know that this quiz will have a total of 11 questions.
 	function results(){
-		var covidPercent = covid_count/ (11) * 100;
-		var coldPercent = cold_count/ (11) * 100;
-		var fluPercent = flu_count/ (11) * 100;
-		var allergyPercent = allergy_count/ (11) * 100;
+		var covidPercent = covid_count/ (covid_count + notCovid_count) * 100;
+		var notCovidPercent = notCovid_count/ (covid_count + notCovid_count) * 100;
 		var resultText = document.getElementById("results");
-		resultText.innerHTML = "Probability it is COVID-19 = " + covidPercent + "%"; //"%<br> Probability it is the cold = " + coldPercent + "%<br> Probability it is the flu = " + fluPercent + "%<br> Probability it is allergies = " + allergyPercent + "%";
-		
+		resultText.innerHTML = "Percentage of symptoms you have from coronavirus = " + covidPercent + "%";
 	}
 		
-	//below will be a combination of functions fit into one function in order to return a value
-	
-	//for question 1, question 3, question 5, question 6, 
-	function covidFluAdd(){
-		covidAdd();
-		fluAdd();
-	}
-	
-	//for question 2
-	function covidFluAllergyAdd(){
-		covidAdd();
-		fluAdd();
-		allergyAdd();
-	}
-	
-	//for question 3, for question 4, question 10
-	function coldAllergyAdd(){
-		covidAdd();
-		allergyAdd();
-	}
-	
-	//for question 7
-	function covidColdAllergyAdd(){
-		covidAdd();
-		coldAdd();
-		allergyAdd();
-	}
-	
-	//for question 8
-	function covidAllergyAdd(){
-		covidAdd();
-		allergyAdd();
-	}
-	
-	//for question 9
-	function coldFluAdd(){
-		coldAdd();
-		fluAdd();
-	}
-	
 
   </script>
 
@@ -155,24 +102,143 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 	
     	<div id="content" class="w3-container">
-        <p>Do you have a cough?</p>
-			<a href="#two"  onclick="covidAdd();" class="w3-btn w3-red">Yes; a dry cough</a>
-         		<a href="#two"  onclick="coldAdd();" class="w3-btn w3-blue">Yes; a mild cough</a>
-         		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-yellow">Yes, but rarely; a dry cough.</a>
+        <p>Do you have a dry cough?</p>
+			<a href="#two"  onclick="covidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#two"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
+	</div>
+</div>
+	
+<div class="page" id="two">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Do you have shortness of breath?</p>
+			<a href="#three"  onclick="covidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#three"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
 	</div>
 </div>
 
-<div class="page" id="two">
+<div class="page" id="three">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Are you sneezing often?</p>
+			<a href="#four"  onclick="notCovidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#four"  onclick="covidAdd();" class="w3-btn w3-red">No</a>
+	</div>
+</div>
+	
+<div class="page" id="four">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Do you have a runny or stuffy nose?</p>
+			<a href="#five"  onclick="notCovidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#five"  onclick="covidAdd();" class="w3-btn w3-red">No</a>
+	</div>
+</div>
+	
+<div class="page" id="five">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Do you have a sore throat?</p>
+			<a href="#six"  onclick="covidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#six"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
+	</div>
+</div>
+	
+<div class="page" id="six">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 6</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Do you have a fever?</p>
+			<a href="#seven"  onclick="covidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#seven"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
+	</div>
+</div>
+	
+<div class="page" id="seven">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 7</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Are you feeling tired and weak?</p>
+			<a href="#eight"  onclick="covidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#eight"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
+	</div>
+</div>
+	
+<div class="page" id="eight">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 8</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Do you have headaches?</p>
+			<a href="#nine"  onclick="covidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#nine"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
+	</div>
+</div>
+	
+<div class="page" id="nine">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 9</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Do you have body aches and pains?</p>
+			<a href="#ten"  onclick="covidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#ten"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
+	</div>
+</div>
+	
+<div class="page" id="ten">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 10</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Do you have diarrhea?</p>
+			<a href="#eleven"  onclick="covidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#eleven"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
+	</div>
+</div>
+	
+<div class="page" id="eleven">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 11</h1>
+	</div>
+	
+    	<div id="content" class="w3-container">
+        <p>Have your symptoms lasted 7-25 days?</p>
+			<a href="#twelve"  onclick="covidAdd();" class="w3-btn w3-green">Yes</a>
+         		<a href="#twelve"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
+	</div>
+</div>
+	
+<div class="page" id="twelve">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Results Processing</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-		<a href="#three" onclick="results();" class="w3-btn w3-black">Click here to view results</a>	
+		<a href="#thirteen" onclick="results();" class="w3-btn w3-black">Click here to view results</a>	
 	</div>
 </div>
 
-<div class="page" id="three">
+<div class="page" id="thirteen">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Your Results!</h1>
 	</div>
