@@ -20,7 +20,7 @@ Brief Description of Goal of Code:
 The goal of the code is to serve as a diagnostic tool for COVID-19 in order to distinguish between the other 3 illnesses that have common symptoms: the cold, flu, and allergies.
  
 Known Issues:
-blah, blah, blah, blah
+None
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
@@ -35,18 +35,22 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 
 <script>
-	
+	//these variables are what's gonna be used to show the percentage of symptoms that are from coronavirus
 	var covid_count = 0;
 	var notCovid_count = 0;
         
+	//this function adds 1 to covid_count for the questions
 	function covidAdd(){
 		covid_count = covid_count + 1;
 	}
 	
+	//this function adds 1 to notCovid_count for the questions
 	function notCovidAdd(){
 		notCovid_count = notCovid_count + 1;
 	}
 	
+	//this function calculates the results just like the previous app. It takes the covid_count as the numerator and divides it by the total number of counts.
+	//then, it multiplies the whole number by a 100 to get a percentage.
 	function results(){
 		var covidPercent = covid_count/ (covid_count + notCovid_count) * 100;
 		var notCovidPercent = notCovid_count/ (covid_count + notCovid_count) * 100;
@@ -58,7 +62,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   </script>
 
 
-
+<!--this styles the webpages-->
 <style>	
 .body {
      margin: 0em;
@@ -81,13 +85,15 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 }
 </style>
 
+<!--the body and content of the webpages-->
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
 	<h1>Do you have the coronavirus?</h1>
 </div>
 	
+<!--This is the introduction of the quiz.-->
 <div id="content" class="w3-container">
-	<p>Take this quiz to see the probability of having the coronavirus, the cold, the flu, or seasonal allergies.</p>
+	<p>Take this quiz to see the probability of having the coronavirus!</p>
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
 	
@@ -96,6 +102,10 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 </div>
 
+<!--The first question deals with a dry cough which usually happens with COVID-19-->
+<!--The structure of the questions consists of a header of the question number -->
+<!--Then, it asks the question of the specific symptom-->
+<!--Underneath that question are buttons for yes and no to add counts to covid_count or notCovid_count-->
 <div class="page" id="one">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 1</h1>
@@ -108,6 +118,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 	
+<!--Shortness of breath only happens sometimes, but I decided to count it as a yes every time a symptom was "Sometimes"-->
 <div class="page" id="two">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
@@ -120,6 +131,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 
+<!--I had to switch covidAdd() and notCovidAdd() because it didn't apply to the question-->
 <div class="page" id="three">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 3</h1>
@@ -132,6 +144,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 	
+<!--Since it says "Rare" for the runny or stuffy nose, I decided not to count it just because the other illnesses either said "Common" or "Sometimes" which I would have counted as yes.-->
 <div class="page" id="four">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 4</h1>
@@ -144,6 +157,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 	
+<!--Like the past question, I decided to count "Sometimes" as Yes for coronavirus just because there's still a chance that it might happen.-->
 <div class="page" id="five">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 5</h1>
@@ -155,7 +169,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
          		<a href="#six"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
 	</div>
 </div>
-	
+
+<!--"Commoon" for all the other symptomos would count as a "Yes" for coronavirus and would add +1 to covid_count. -->
 <div class="page" id="six">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 6</h1>
@@ -167,7 +182,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
          		<a href="#seven"  onclick="notCovidAdd();" class="w3-btn w3-red">No</a>
 	</div>
 </div>
-	
+
+<!--This symptom can happen with all the other illnesses on the chart so I decided to count it as a yes -->
 <div class="page" id="seven">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 7</h1>
@@ -180,6 +196,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 	
+<!--This is the same situation with the other questions with "Somoetimes" -->
 <div class="page" id="eight">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 8</h1>
@@ -192,6 +209,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 	
+<!--This is the same situation with the other questions with "Somoetimes" -->
 <div class="page" id="nine">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 9</h1>
@@ -204,6 +222,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 	
+<!--This is the same situation with the other questions with "Somoetimes" -->
 <div class="page" id="ten">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 10</h1>
@@ -216,6 +235,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 	
+<!--I decided to put this question last so the person taking the quiz would know all the symptoms first before learning about the duration of the symptoms-->
 <div class="page" id="eleven">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 11</h1>
@@ -228,6 +248,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 	
+<!--This is the results page. I decided to make it 2 pages because it worked for me last time-->
 <div class="page" id="twelve">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Results Processing</h1>
@@ -238,16 +259,20 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	</div>
 </div>
 
+<!--This shows the real page of the probability as well as the visual component-->
 <div class="page" id="thirteen">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Your Results!</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p id="results"></p>	
+		<p id="results"></p>
+		<canvas id="b" width="400" height="400" style="border:1px solid #000000;"></canvas>
+			
 	</div>
 </div>
 
+<!--This is the footer that stays constant and shows up in all of the webpages-->
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>Bernadine's Diagnostic for COVID-19 - DIY!</p>
 </footer>
