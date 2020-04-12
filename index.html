@@ -43,11 +43,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	//this function adds 1 to covid_count for the questions
 	function covidAdd(){
 		covid_count = covid_count + 1;
+		return covid_count;
 	}
 	
 	//this function adds 1 to notCovid_count for the questions
 	function notCovidAdd(){
 		notCovid_count = notCovid_count + 1;
+		return notCovid_count;
 	}
 	
 	//this function calculates the results just like the previous app. It takes the covid_count as the numerator and divides it by the total number of counts.
@@ -275,14 +277,16 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="chart-div"></div>
     <script>
+	var covidPie = [1,2,3];
+	var notCovidPie = [7,8,9];
       var chartData ={
         type: 'pie',
         series: [
         {
-          values: [9]
+          values: covidPie[1]
         } ,
         {
-          values: [11]
+          values: notCovidPie[3]
         }
         ]
         };
