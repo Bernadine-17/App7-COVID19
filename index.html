@@ -31,6 +31,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
       <link rel="stylesheet" href="w3-colors-flat.css">
+	<script src= "https://cdn.zingchart.com/zingchart.min.js"></script>
    </head> 
 
 
@@ -82,6 +83,11 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
   .page:target {
     left: 0vw;
     z-index: 1;
+}
+	
+#chart-div {
+  height: 350px;
+  width: 600px;
 }
 	
 </style>
@@ -265,6 +271,24 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div class="w3-container w3-flat-carrot">
 		<h1>Your Results!</h1>
 	</div>
+	<div id="chart-div"></div>
+	<script>
+      var chartData ={
+        type: 'pie',
+        series: [
+        {
+          values: [35]
+        } ,
+        {
+          values: [75]
+        }
+        ]
+        };
+      zingchart.render({
+        id: 'chart-div',
+        data: chartData
+      });
+    </script>
 	
 	<div id="content" class="w3-container">
 		<p id="results"></p>
