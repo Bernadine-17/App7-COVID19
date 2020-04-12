@@ -280,43 +280,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <!--This block of code using a pie graph template but I don't know how to input the variable value into an array, so it doesn't work-->
 	<div id="chart-div"></div>
     <script>
-	if (covid_count === 0) {
-		var covidPie = [0];
-		var notCovidPie = [11];
-	} else if (covid_count === 1) {
-		var covidPie = [1];
-		var notCovidPie = [10];
-	} else if (covid_count === 2) {
-		var covidPie = [2];
-		var notCovidPie = [9];
-	} else if (covid_count === 3) {
-		var covidPie = [3];
-		var notCovidPie = [8];
-	} else if (covid_count === 4) {
-		var covidPie = [4];
-		var notCovidPie = [7];
-	} else if (covid_count === 5) {
-		var covidPie = [5];
-		var notCovidPie = [6];
-	} else if (covid_count === 6) {
-		var covidPie = [6];
-		var notCovidPie = [5];
-	} else if (covid_count === 7) {
-		var covidPie = [7];
-		var notCovidPie = [4];
-	} else if (covid_count === 8) {
-		var covidPie = [8];
-		var notCovidPie = [3];
-	} else if (covid_count === 9) {
-		var covidPie = [9];
-		var notCovidPie = [2];
-	} else if (covid_count === 10) {
-		var covidPie = [10];
-		var notCovidPie = [1];
-	} else if (covid_count === 11) {
-		var covidPie = [11];
-		var notCovidPie = [0];
-	} 
+	var covidPie = [9];
+	var notCovidPie = [2];
       var chartData ={
         type: 'pie',
         series: [
