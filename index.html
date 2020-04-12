@@ -267,12 +267,15 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </div>
 
 <!--This shows the real page of the probability as well as the visual component-->
+<!--Below is my display strategy. It is supposed to display a pie graph with the probability of the person having the coronavirus-->
 <div class="page" id="thirteen">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Your Results!</h1>
 	</div>
 	<div id="chart-div"></div>
 	<script>
+	var covid_count =  covid_count;
+	var notCovid_count = notCovid_count;
       var chartData ={
         type: 'pie',
         series: [
@@ -288,7 +291,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         id: 'chart-div',
         data: chartData
       });
-    </script>
+   	 </script>
 	
 	<div id="content" class="w3-container">
 		<p id="results"></p>
